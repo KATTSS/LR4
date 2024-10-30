@@ -28,7 +28,7 @@ int main()
             break;
 
         case 2:
-            std::cout << "Буткевич Екатерина, группа 453501" << std::endl;
+            std::cout << "Буткевич Екатерина, группа 453501, вариант  7" << std::endl;
             break;
 
         case 3:
