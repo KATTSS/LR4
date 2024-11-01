@@ -2,6 +2,7 @@
 
 void menu();
 int task2();
+int vvod(int y, int b);
 
 int main()
 {
@@ -63,20 +64,8 @@ void menu()
 int task2()
 {
     int m, n;
-    std::cout << "Введите количество строк матрицы: ";
-    do
-    {
-        std::cin >> n;
-        if (n <= 1)
-            std::cout << "Количество строк должно быть >1, чтобы существовали элементы,\nлежащие ниже побочной диагонали.\nПопробуйте ещё раз: " << '\n';
-    } while (n <= 1);
-    std::cout << "Введите количество столбцов матрицы: ";
-    do
-    {
-        std::cin >> m;
-        if (m <= 1)
-            std::cout << "Количество столбцов должно быть >1, чтобы существовали элементы,\nлежащие ниже побочной диагонали.\nПопробуйте ещё раз: " << '\n';
-    } while (m <= 1);
+    n = vvod(1, 1);
+    m = vvod(1, 2);
 
     int matrix[n][m];
     std::cout << "\nВведите элементы матрицы: ";
@@ -84,16 +73,16 @@ int task2()
     {
         for (int j = 0; j < m; ++j)
         {
-            std::cin >> matrix[i][j];
+            matrix[i][j] = vvod(2, 0);
         }
     }
     int min = matrix[1][m - 1];
-    // std::cout << "min = " << min << std::endl;
+
     for (int i = 1; i <= n - 1; ++i)
     {
         for (int j = m - 1; j >= m - i; --j)
         {
-            // std::cout << matrix[i][j] << " ";
+
             if (matrix[i][j] < min)
             {
                 min = matrix[i][j];
@@ -112,4 +101,31 @@ int task2()
     // }
 
     return 0;
+}
+
+int vvod(int y, int b)
+{
+    std::string s;
+    int x;
+    if (y == 1)
+    {
+        do
+        {
+            if (b == 1)
+                std::cout << "Введите размеры строки матрицы(>1): ";
+            else if (b == 2)
+                std::cout << "Введите размеры столбца матрицы(>1): ";
+            std::getline(std::cin, s);
+            x = std::atoi(s.c_str());
+        } while (s.find_first_not_of("1234567890") != std::string::npos || x <= 1);
+    }
+    else if (y == 2)
+    {
+        std::cout << "a[i][j]: ";
+        std::getline(std::cin, s);
+        x = std::atoi(s.c_str());
+    }
+    while (s.find_first_not_of("1234567890") != std::string::npos);
+
+    return x;
 }
