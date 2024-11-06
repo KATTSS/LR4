@@ -27,9 +27,9 @@ int main()
                 return 1;
             }
             x = atoi(s);
-            // free(s);
+            
         } while (x < 1 || x > 5);
-
+        free(s);
         switch (x)
         {
         case 1:

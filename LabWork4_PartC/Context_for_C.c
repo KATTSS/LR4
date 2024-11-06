@@ -24,9 +24,9 @@ int main()
             return 1;
         }
         x=atoi(s);
-       // free(s);   
+        free(s);   
     }while ( x < 1 || x > 5);
-
+    free(s); 
     switch (x)
         {
         case 1:
@@ -38,7 +38,8 @@ int main()
             break;
 
         case 3:
-            
+        
+            getline(&s, &ssize, stdin);
             break;
 
         case 4:
