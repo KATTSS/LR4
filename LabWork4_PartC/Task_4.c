@@ -27,7 +27,7 @@ int main()
                 return 1;
             }
             x = atoi(s);
-            
+
         } while (x < 1 || x > 5);
         free(s);
         switch (x)
@@ -138,6 +138,17 @@ int task4()
         printf("\nСумма элементов диагонали из левого заднего верхнего угла максимальная");
     else
         printf("\nЕсть равные значения сумм элементов диагоналей");
+    //очистка памяти
+    for (int i = 0; i < n; ++i)
+    {
+        for (int j = 0; j < n; ++j)
+        {
+            free(kub[i][j]);
+        }
+        free(kub[i]);
+    }
+    free(kub);
+    kub=NULL;
 
     return 0;
 }

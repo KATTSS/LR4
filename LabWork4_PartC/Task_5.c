@@ -151,5 +151,7 @@ int task5()
     }
     free(map);
     free(num);
+    map=NULL;
+    num=NULL;
     return 0;
 }

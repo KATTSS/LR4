@@ -19,7 +19,7 @@ int main()
         printf("%d ", kub[k]);
     }
 
-    free((void *)kub);
-
+    free(kub);
+    kub=NULL;
     return 0;
 }
