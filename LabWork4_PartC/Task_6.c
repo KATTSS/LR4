@@ -1,46 +1,120 @@
+//all working
 #include <stdio.h>
 #include <stdlib.h>
 
-int chetny(int n);
-int nechetny(int n);
-int other(int n);
+int chetny(int n, int **square);
+int nechetny(int n, int **square, int rad, int stolbik, int num);
+int other(int **square, int n);
+void freemem(int **square, int n);
+void printsq(int **square, int n);
+void menuc();
+int task6();
 
 int main()
+{
+    menuc();
+    int exit=0;
+    while (exit!=1) {
+    char *s=NULL;
+    size_t ssize = 0;
+    __ssize_t stringsize;
+    const char* valid_chars = "12345";
+    int x;
+   
+    do
+    {
+        
+        printf("\nВведите номер желаемой операции: ");
+        stringsize=getline(&s, &ssize, stdin);
+        if(stringsize==-1){
+            perror("Ошибка ввода");
+            return 1;
+        }
+        x=atoi(s);
+        free(s);   
+    }while ( x < 1 || x > 5);
+   // free(s); 
+    switch (x)
+        {
+        case 1:
+            printf("Магический квадрат");
+            break;
+
+        case 2:
+            printf("Буткевич Екатерина, группа 453501");
+            break;
+
+        case 3:
+            task6();
+            getline(&s, &ssize, stdin);
+            break;
+
+        case 4:
+             menuc();
+            break;
+
+        case 5:
+        exit= 1;
+        break;
+        }
+    }
+    
+    return 0;
+}
+
+void menuc()
+{
+    printf("\nСуть программы - 1\nКто выполнил задание? - 2\nЗапуск программы - 3\nМеню - 4\nЗавершить программу - 5\n");
+}
+
+int task6()
 {
     int n;
     printf("\nВведите порядок магического квадрата: ");
     scanf("%d", &n);
-    if((n-2)%4==0) {
-        other(n);
-    }
-    if (n % 4 == 0)
+
+    // Cпроверка на существование
+    if (n < 3)
     {
-        chetny(n);
-    }
-    else
-    {
-        nechetny(n);
+        printf("NO");
+        return 1;
     }
 
-    return 0;
-}
-
-inline int chetny(int n)
-{
     // создание массива с нулями для заполнения элементами
     int **square = (int **)calloc(n, sizeof(int *));
     for (int i = 0; i < n; ++i)
     {
         square[i] = (int *)calloc(n, sizeof(int));
     }
+
+    if ((n - 2) % 4 == 0)
+    {
+        other(square, n);
+    }
+    else if (n % 4 == 0)
+    {
+        chetny(n, square);
+    }
+    else
+    {
+        nechetny(n, square, 0, n / 2, 1);
+    }
+
+    printsq(square, n);
+    freemem(square, n);
+
+    return 0;
+}
+
+int chetny(int n, int **square)
+{
     // заполнение натуральными числами по порядку
     int num = 1;
     for (int i = 0; i < n; ++i)
     {
         for (int j = 0; j < n; ++j)
         {
-            square[i][j] = num;
-            num++;
+            square[i][j] = num++;
         }
     }
     // перестройка до магического квадрата
@@ -54,125 +128,124 @@ inline int chetny(int n)
             }
         }
     }
+
+    return 0;
+}
+
+int nechetny(int n, int **square, int rad, int stolbik, int num)
+{
+    while (num <= n * n)
+    {
+        square[rad][stolbik] = num++;
+
+        // переход к след позиции
+        stolbik++;
+        rad--;
+
+        if (rad == -1 && stolbik == n)
+        {
+            rad += 2;
+            stolbik--;
+        }
+        if (rad < 0)
+        {
+            rad = n - 1;
+        }
+        if (stolbik == n)
+        {
+            stolbik = 0;
+        }
+        if (square[rad][stolbik])
+        {
+            rad += 2;
+            stolbik--;
+        }
+    }
+
+    return 0;
+}
+
+int other(int **square, int n)
+{
+    int halfN = n / 2;
+    int **subSquare = (int **)calloc(halfN, sizeof(int *));
+    for (int i = 0; i < halfN; ++i)
+    {
+        subSquare[i] = (int *)calloc(halfN, sizeof(int));
+    }
+
+    // заполнение первой 1/4 нечётным методом
+    nechetny(halfN, subSquare, 0, halfN / 2, 1);
+
+    // корректное заполнение четвертинок
+    for (int i = 0; i < halfN; ++i)
+    {
+        for (int j = 0; j < halfN; ++j)
+        {
+            square[i][j] = subSquare[i][j];
+            square[i][j + halfN] = subSquare[i][j] + 2 * halfN * halfN;
+            square[i + halfN][j + halfN] = subSquare[i][j] + halfN * halfN;
+            square[i + halfN][j] = subSquare[i][j] + 3 * halfN * halfN;
+        }
+    }
+    printsq(square, n);
+    printf("\n");
+
+    // рядовые(столбичные) замены
+    for (int i = 0; i < halfN; ++i)
+    {
+        for (int j = 0; j < halfN / 2; ++j)
+        {
+            if (i == halfN / 2)
+            {
+                int temp = square[i][j + 1];
+                square[i][j + 1] = square[i + halfN][j + 1];
+                square[i + halfN][j + 1] = temp;
+            }
+            else
+            {
+                int temp = square[i][j];
+                square[i][j] = square[i + halfN][j];
+                square[i + halfN][j] = temp;
+            }
+        }
+    }
+
+    for (int i = 0; i < halfN; ++i)
+    {
+        for (int j = halfN + halfN / 2 + 2; j < n; ++j)
+        {
+            int temp = square[i][j];
+            square[i][j] = square[i + halfN][j];
+            square[i + halfN][j] = temp;
+        }
+    }
+
+    // свободу дополнительно заданной памяти!!!!
+    freemem(subSquare, halfN);
+
+    return 0;
+}
+
+void freemem(int **square, int n)
+{
+    // освобождение памяти
+    for (int i = 0; i < n; ++i)
+    {
+        free(square[i]);
+    }
+    free(square);
+}
+
+void printsq(int **square, int n)
+{
     // экранный вывод
     for (int i = 0; i < n; ++i)
     {
         for (int j = 0; j < n; ++j)
         {
-            printf("%5d", square[i][j]);
-            printf(" ");
+            printf("%5d ", square[i][j]);
         }
         printf("\n");
     }
-
-    return 0;
-}
-
-inline int nechetny(int n)
-{
-    // создание массива с нулями для заполнения элементами
-    int **squaren = (int **)calloc(n, sizeof(int *));
-    for (int i = 0; i < n; ++i)
-    {
-        squaren[i] = (int *)calloc(n, sizeof(int));
-    }
-
-    int num = 1, stolbik = n - 1, rad = n / 2;
-
-    while (num <= n * n)
-    {
-        squaren[rad][stolbik] = num;
-
-        ++num;
-        ++stolbik;
-        --rad;
-
-        if (rad == -1 && stolbik == n)
-        {
-            rad = 0;
-            stolbik = n - 2;
-        }
-        else if (rad < 0)
-            rad = n - 1;
-        else if (stolbik == n)
-            stolbik = 0;
-        if (squaren[rad][stolbik])
-        {
-            ++rad;
-            stolbik -= 2;
-        }
-    }
-
-    for (int i = 0; i < n; ++i)
-    {
-        for (int j = 0; j < n; ++j)
-        {
-            printf("%5d", squaren[i][j]);
-            printf(" ");
-        }
-        printf("\n");
-    }
-
-    for (int i = 0; i < n; ++i)
-    {
-        free(squaren[i]);
-    }
-    free(squaren);
-    squaren = NULL;
-
-    return 0;
-}
-inline int other(int n)
-{
-
-    int **other = (int **)calloc(n, sizeof(int *));
-    for (int i = 0; i < n; ++i)
-    {
-        other[i] = (int *)calloc(n, sizeof(int));
-    }
-
-    int half=n/2;
-
-    int** pal=(int**)calloc(half, sizeof(int*));
-    for (int i=0; i<half; ++i) {
-        pal[i]=(int*)calloc(half, sizeof(int));
-    }
-
-    nechetny(half);
-     for (int i = 0; i < half; i++) {
-        for (int j = 0; j < half; j++) {
-            int x = i * 2;
-            int y = j * 2;
-            other[i][j] = pal[i][j];
-            other[i + half][j] = pal[i][j] + half*half * 2;
-            other[i][j + half] = pal[i][j] + half*half* 3;
-            other[i + half][j + half] = pal[i][j] + half;
-        }
-    }
-     for (int i = 0; i < n; ++i)
-    {
-        free(pal[i]);
-    }
-    free(pal);
-    pal = NULL;
-
-   
-        for (int i = 0; i < n; ++i)
-    {
-        for (int j = 0; j < n; ++j)
-        {
-            printf("%5d", other[i][j]);
-            printf(" ");
-        }
-        printf("\n");
-    }
-
-    for (int i = 0; i < n; ++i)
-    {
-        free(other[i]);
-    }
-    free(other);
-    other = NULL;
-
-    return 0;
 }
