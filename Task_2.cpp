@@ -102,7 +102,6 @@ int task2()
 
     return 0;
 }
-
 int vvod(int y, int b)
 {
     std::string s;
@@ -128,4 +127,5 @@ int vvod(int y, int b)
     while (s.find_first_not_of("1234567890") != std::string::npos);
 
     return x;
+
 }

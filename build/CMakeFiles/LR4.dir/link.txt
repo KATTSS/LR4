@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/LR4.dir/Task_1.cpp.o -o LR4 

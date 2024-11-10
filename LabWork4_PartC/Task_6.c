@@ -74,7 +74,12 @@ int task6()
     scanf("%d", &n);
 
     // Cпроверка на существование
-    if (n < 3)
+        if (n==1)
+    {
+        printf("%d", 1);
+        return 1;
+    }
+    if (n < 3 && n!=1)
     {
         printf("NO");
         return 1;
