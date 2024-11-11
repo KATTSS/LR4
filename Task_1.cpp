@@ -2,6 +2,7 @@
 
 void menu();
 int task1();
+int vvod(int y);
 
 int main()
 {
@@ -63,15 +64,14 @@ void menu()
 int task1()
 {
     int k;
-    std::cout << "Введите количество элементов массива: ";
-    std::cin >> k;
-
+    do {
+    k=vvod(1);} while (k<1);
     int array[k];
 
-    std::cout << "\nВведите элементы массива: ";
+    //std::cout << "\nВведите элементы массива: ";
     for (int i = 0; i < k; ++i) // ввод элементов массива
     {
-        std::cin >> array[i];
+        array[i]=vvod(2);
     }
 
     int sdvig;
@@ -97,4 +97,19 @@ int task1()
     }
 
     return 0;
+}
+
+int vvod(int y) {
+    int x;
+    std::string s;
+
+        do
+        {
+            if (y==1) std::cout << "Введите количество элементов массива: ";
+            else if (y==2) std::cout << "Введите элемент массива: ";
+            std::getline(std::cin, s);
+            x = std::atoi(s.c_str());
+        } while (s.find_first_not_of("-1234567890") != std::string::npos);
+
+        return x;
 }

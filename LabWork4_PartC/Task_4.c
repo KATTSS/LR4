@@ -1,8 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
 
 void menuc();
 int task4();
+int provnanatural(const char *str);
 
 int main()
 {
@@ -64,9 +68,20 @@ void menuc()
 
 int task4()
 {
-    int n;
+    int n, q=0;
+    char vvod[1000];
+
+    do {
     printf("Введите размер массива: ");
-    scanf("%d", &n);
+
+    scanf("%s", vvod);
+    if(provnanatural(vvod)) {
+        n=atoi(vvod);
+        q=1;
+    }
+    else {
+        printf("Размер должен быть натуральным числом. ");
+    } } while (q!=1);
 
     // создание динамического трёхмерного массива
     int ***kub = (int ***)malloc(n * sizeof(int **));
@@ -86,9 +101,10 @@ int task4()
         {
             for (int k = 0; k < n; ++k)
             {
-                printf("Введите элемент массива: ");
-                scanf("%d", &kub[i][j][k]);
+                // printf("Введите элемент массива: ");
+                // scanf("%d", &kub[i][j][k]);
                 // printf("%d ", kub[i][j][k]);
+                kub[i][j][k] = rand() % 10;
             }
         }
     }
@@ -138,7 +154,7 @@ int task4()
         printf("\nСумма элементов диагонали из левого заднего верхнего угла максимальная");
     else
         printf("\nЕсть равные значения сумм элементов диагоналей");
-    //очистка памяти
+    // очистка памяти
     for (int i = 0; i < n; ++i)
     {
         for (int j = 0; j < n; ++j)
@@ -148,7 +164,19 @@ int task4()
         free(kub[i]);
     }
     free(kub);
-    kub=NULL;
+    kub = NULL;
 
     return 0;
+}
+
+int provnanatural(const char *str)
+{
+    for (int i = 0; i < strlen(str); ++i)
+    {
+        if (!isdigit((unsigned char)str[i]))
+        {
+            return 0; // Не является натуральным числом
+        }
+    }
+    return 1; // Является натуральным числом
 }

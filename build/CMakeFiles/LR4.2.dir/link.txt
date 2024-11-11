@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/LR4.2.dir/Task_2.cpp.o -o LR4.2 

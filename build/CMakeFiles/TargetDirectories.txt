@@ -1,6 +1,4 @@
-/home/katya/work/453501/ОАиП/LR4/build/CMakeFiles/LR4.1.dir
 /home/katya/work/453501/ОАиП/LR4/build/CMakeFiles/Tests1.dir
-/home/katya/work/453501/ОАиП/LR4/build/CMakeFiles/LR4.2.dir
 /home/katya/work/453501/ОАиП/LR4/build/CMakeFiles/Tests2.dir
 /home/katya/work/453501/ОАиП/LR4/build/CMakeFiles/Tests3.dir
 /home/katya/work/453501/ОАиП/LR4/build/CMakeFiles/Tests4.dir

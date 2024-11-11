@@ -1,0 +1,56 @@
+[
+{
+  "directory": "/home/katya/work/453501/ОАиП/LR4/build",
+  "command": "/usr/bin/g++  -isystem /home/katya/work/453501/ОАиП/LR4/googletest/googletest/include -isystem /home/katya/work/453501/ОАиП/LR4/googletest/googletest -g -std=gnu++14 -o CMakeFiles/Tests1.dir/test1.cpp.o -c /home/katya/work/453501/ОАиП/LR4/test1.cpp",
+  "file": "/home/katya/work/453501/ОАиП/LR4/test1.cpp",
+  "output": "CMakeFiles/Tests1.dir/test1.cpp.o"
+},
+{
+  "directory": "/home/katya/work/453501/ОАиП/LR4/build",
+  "command": "/usr/bin/g++  -isystem /home/katya/work/453501/ОАиП/LR4/googletest/googletest/include -isystem /home/katya/work/453501/ОАиП/LR4/googletest/googletest -g -std=gnu++14 -o CMakeFiles/Tests2.dir/test2.cpp.o -c /home/katya/work/453501/ОАиП/LR4/test2.cpp",
+  "file": "/home/katya/work/453501/ОАиП/LR4/test2.cpp",
+  "output": "CMakeFiles/Tests2.dir/test2.cpp.o"
+},
+{
+  "directory": "/home/katya/work/453501/ОАиП/LR4/build",
+  "command": "/usr/bin/g++  -isystem /home/katya/work/453501/ОАиП/LR4/googletest/googletest/include -isystem /home/katya/work/453501/ОАиП/LR4/googletest/googletest -g -std=gnu++14 -o CMakeFiles/Tests3.dir/test3.cpp.o -c /home/katya/work/453501/ОАиП/LR4/test3.cpp",
+  "file": "/home/katya/work/453501/ОАиП/LR4/test3.cpp",
+  "output": "CMakeFiles/Tests3.dir/test3.cpp.o"
+},
+{
+  "directory": "/home/katya/work/453501/ОАиП/LR4/build",
+  "command": "/usr/bin/g++  -isystem /home/katya/work/453501/ОАиП/LR4/googletest/googletest/include -isystem /home/katya/work/453501/ОАиП/LR4/googletest/googletest -g -std=gnu++14 -o CMakeFiles/Tests4.dir/test4.cpp.o -c /home/katya/work/453501/ОАиП/LR4/test4.cpp",
+  "file": "/home/katya/work/453501/ОАиП/LR4/test4.cpp",
+  "output": "CMakeFiles/Tests4.dir/test4.cpp.o"
+},
+{
+  "directory": "/home/katya/work/453501/ОАиП/LR4/build",
+  "command": "/usr/bin/g++  -isystem /home/katya/work/453501/ОАиП/LR4/googletest/googletest/include -isystem /home/katya/work/453501/ОАиП/LR4/googletest/googletest -g -std=gnu++14 -o CMakeFiles/Tests6.dir/test6.cpp.o -c /home/katya/work/453501/ОАиП/LR4/test6.cpp",
+  "file": "/home/katya/work/453501/ОАиП/LR4/test6.cpp",
+  "output": "CMakeFiles/Tests6.dir/test6.cpp.o"
+},
+{
+  "directory": "/home/katya/work/453501/ОАиП/LR4/build/googletest/googlemock",
+  "command": "/usr/bin/g++  -I/home/katya/work/453501/ОАиП/LR4/googletest/googlemock/include -I/home/katya/work/453501/ОАиП/LR4/googletest/googlemock -isystem /home/katya/work/453501/ОАиП/LR4/googletest/googletest/include -isystem /home/katya/work/453501/ОАиП/LR4/googletest/googletest -g -std=c++14 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /home/katya/work/453501/ОАиП/LR4/googletest/googlemock/src/gmock-all.cc",
+  "file": "/home/katya/work/453501/ОАиП/LR4/googletest/googlemock/src/gmock-all.cc",
+  "output": "googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o"
+},
+{
+  "directory": "/home/katya/work/453501/ОАиП/LR4/build/googletest/googlemock",
+  "command": "/usr/bin/g++  -isystem /home/katya/work/453501/ОАиП/LR4/googletest/googlemock/include -isystem /home/katya/work/453501/ОАиП/LR4/googletest/googlemock -isystem /home/katya/work/453501/ОАиП/LR4/googletest/googletest/include -isystem /home/katya/work/453501/ОАиП/LR4/googletest/googletest -g -std=c++14 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /home/katya/work/453501/ОАиП/LR4/googletest/googlemock/src/gmock_main.cc",
+  "file": "/home/katya/work/453501/ОАиП/LR4/googletest/googlemock/src/gmock_main.cc",
+  "output": "googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o"
+},
+{
+  "directory": "/home/katya/work/453501/ОАиП/LR4/build/googletest/googletest",
+  "command": "/usr/bin/g++  -I/home/katya/work/453501/ОАиП/LR4/googletest/googletest/include -I/home/katya/work/453501/ОАиП/LR4/googletest/googletest -g -std=c++14 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /home/katya/work/453501/ОАиП/LR4/googletest/googletest/src/gtest-all.cc",
+  "file": "/home/katya/work/453501/ОАиП/LR4/googletest/googletest/src/gtest-all.cc",
+  "output": "googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o"
+},
+{
+  "directory": "/home/katya/work/453501/ОАиП/LR4/build/googletest/googletest",
+  "command": "/usr/bin/g++  -isystem /home/katya/work/453501/ОАиП/LR4/googletest/googletest/include -isystem /home/katya/work/453501/ОАиП/LR4/googletest/googletest -g -std=c++14 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /home/katya/work/453501/ОАиП/LR4/googletest/googletest/src/gtest_main.cc",
+  "file": "/home/katya/work/453501/ОАиП/LR4/googletest/googletest/src/gtest_main.cc",
+  "output": "googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o"
+}
+]

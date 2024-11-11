@@ -73,15 +73,15 @@ CMakeFiles/Tests2.dir/test2.cpp.o: CMakeFiles/Tests2.dir/flags.make
 CMakeFiles/Tests2.dir/test2.cpp.o: /home/katya/work/453501/ОАиП/LR4/test2.cpp
 CMakeFiles/Tests2.dir/test2.cpp.o: CMakeFiles/Tests2.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/katya/work/453501/ОАиП/LR4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Tests2.dir/test2.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Tests2.dir/test2.cpp.o -MF CMakeFiles/Tests2.dir/test2.cpp.o.d -o CMakeFiles/Tests2.dir/test2.cpp.o -c /home/katya/work/453501/ОАиП/LR4/test2.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Tests2.dir/test2.cpp.o -MF CMakeFiles/Tests2.dir/test2.cpp.o.d -o CMakeFiles/Tests2.dir/test2.cpp.o -c /home/katya/work/453501/ОАиП/LR4/test2.cpp
 
 CMakeFiles/Tests2.dir/test2.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Tests2.dir/test2.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/katya/work/453501/ОАиП/LR4/test2.cpp > CMakeFiles/Tests2.dir/test2.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/katya/work/453501/ОАиП/LR4/test2.cpp > CMakeFiles/Tests2.dir/test2.cpp.i
 
 CMakeFiles/Tests2.dir/test2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Tests2.dir/test2.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/katya/work/453501/ОАиП/LR4/test2.cpp -o CMakeFiles/Tests2.dir/test2.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/katya/work/453501/ОАиП/LR4/test2.cpp -o CMakeFiles/Tests2.dir/test2.cpp.s
 
 # Object files for target Tests2
 Tests2_OBJECTS = \

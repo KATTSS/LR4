@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/Tests3.dir/test3.cpp.o -o Tests3  lib/libgtest.a lib/libgtest_main.a lib/libgtest.a 
+/usr/bin/g++ -g CMakeFiles/Tests3.dir/test3.cpp.o -o Tests3  lib/libgtest.a lib/libgtest_main.a lib/libgtest.a 

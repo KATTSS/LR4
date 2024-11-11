@@ -162,19 +162,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named LR4.1
-
-# Build rule for target.
-LR4.1: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LR4.1
-.PHONY : LR4.1
-
-# fast build rule for target.
-LR4.1/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LR4.1.dir/build.make CMakeFiles/LR4.1.dir/build
-.PHONY : LR4.1/fast
-
-#=============================================================================
 # Target rules for targets named Tests1
 
 # Build rule for target.
@@ -186,19 +173,6 @@ Tests1: cmake_check_build_system
 Tests1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tests1.dir/build.make CMakeFiles/Tests1.dir/build
 .PHONY : Tests1/fast
-
-#=============================================================================
-# Target rules for targets named LR4.2
-
-# Build rule for target.
-LR4.2: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LR4.2
-.PHONY : LR4.2
-
-# fast build rule for target.
-LR4.2/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LR4.2.dir/build.make CMakeFiles/LR4.2.dir/build
-.PHONY : LR4.2/fast
 
 #=============================================================================
 # Target rules for targets named Tests2
@@ -303,54 +277,6 @@ gtest_main: cmake_check_build_system
 gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f googletest/googletest/CMakeFiles/gtest_main.dir/build.make googletest/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
-
-Task_1.o: Task_1.cpp.o
-.PHONY : Task_1.o
-
-# target to build an object file
-Task_1.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LR4.1.dir/build.make CMakeFiles/LR4.1.dir/Task_1.cpp.o
-.PHONY : Task_1.cpp.o
-
-Task_1.i: Task_1.cpp.i
-.PHONY : Task_1.i
-
-# target to preprocess a source file
-Task_1.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LR4.1.dir/build.make CMakeFiles/LR4.1.dir/Task_1.cpp.i
-.PHONY : Task_1.cpp.i
-
-Task_1.s: Task_1.cpp.s
-.PHONY : Task_1.s
-
-# target to generate assembly for a file
-Task_1.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LR4.1.dir/build.make CMakeFiles/LR4.1.dir/Task_1.cpp.s
-.PHONY : Task_1.cpp.s
-
-Task_2.o: Task_2.cpp.o
-.PHONY : Task_2.o
-
-# target to build an object file
-Task_2.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LR4.2.dir/build.make CMakeFiles/LR4.2.dir/Task_2.cpp.o
-.PHONY : Task_2.cpp.o
-
-Task_2.i: Task_2.cpp.i
-.PHONY : Task_2.i
-
-# target to preprocess a source file
-Task_2.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LR4.2.dir/build.make CMakeFiles/LR4.2.dir/Task_2.cpp.i
-.PHONY : Task_2.cpp.i
-
-Task_2.s: Task_2.cpp.s
-.PHONY : Task_2.s
-
-# target to generate assembly for a file
-Task_2.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LR4.2.dir/build.make CMakeFiles/LR4.2.dir/Task_2.cpp.s
-.PHONY : Task_2.cpp.s
 
 test1.o: test1.cpp.o
 .PHONY : test1.o
@@ -484,8 +410,6 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... LR4.1"
-	@echo "... LR4.2"
 	@echo "... Tests1"
 	@echo "... Tests2"
 	@echo "... Tests3"
@@ -495,12 +419,6 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
-	@echo "... Task_1.o"
-	@echo "... Task_1.i"
-	@echo "... Task_1.s"
-	@echo "... Task_2.o"
-	@echo "... Task_2.i"
-	@echo "... Task_2.s"
 	@echo "... test1.o"
 	@echo "... test1.i"
 	@echo "... test1.s"

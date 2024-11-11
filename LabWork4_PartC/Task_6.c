@@ -1,6 +1,8 @@
 //all working
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 
 int chetny(int n, int **square);
 int nechetny(int n, int **square, int rad, int stolbik, int num);
@@ -9,6 +11,7 @@ void freemem(int **square, int n);
 void printsq(int **square, int n);
 void menuc();
 int task6();
+int provnanatural(const char *str);
 
 int main()
 {
@@ -69,9 +72,21 @@ void menuc()
 
 int task6()
 {
-    int n;
+    int n, q=0;
+    char vvod[1000];
+
+    do {
     printf("\nВведите порядок магического квадрата: ");
-    scanf("%d", &n);
+
+    scanf("%s", vvod);
+    if(provnanatural(vvod)) {
+        n=atoi(vvod);
+        q=1;
+    }
+    else {
+        printf("Размер должен быть натуральным числом. ");
+    } } while (q!=1);
+  
 
     // Cпроверка на существование
         if (n==1)
@@ -253,4 +268,16 @@ void printsq(int **square, int n)
         }
         printf("\n");
     }
+}
+
+int provnanatural(const char *str)
+{
+    for (int i = 0; i < strlen(str); ++i)
+    {
+        if (!isdigit((unsigned char)str[i]))
+        {
+            return 0; // Не является натуральным числом
+        }
+    }
+    return 1; // Является натуральным числом
 }

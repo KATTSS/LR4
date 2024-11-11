@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
+#include <ctype.h>
 
 void menuc();
 int task5();
+int provnanatural(const char *str);
 
 int main()
 {
@@ -64,10 +67,36 @@ void menuc()
 
 int task5()
 {
-    int n, m;
-    printf("Введите размеры поля(n*m): ");
-    scanf("%d", &n);
-    scanf("%d", &m);
+    int n, m, q=0;
+    char vvod[1000];
+
+    do {
+    printf("Введите размер поля(n): ");
+
+    scanf("%s", vvod);
+    if(provnanatural(vvod)) {
+        n=atoi(vvod);
+        q=1;
+    }
+    else {
+        printf("Размер должен быть натуральным числом. ");
+    } } while (q!=1);
+    //printf("Введите размеры поля(n*m): ");
+    
+    q=0;
+
+    do {
+    printf("Введите размер поля(m): ");
+
+    scanf("%s", vvod);
+    if(provnanatural(vvod)) {
+        m=atoi(vvod);
+        q=1;
+    }
+    else {
+        printf("Размер должен быть натуральным числом. ");
+    } } while (q!=1);
+
 
     // создание массива-поля для сапёра
     int **map = (int **)malloc((n + 2) * sizeof(int *));
@@ -76,15 +105,27 @@ int task5()
         map[i] = (int *)malloc((m + 2) * sizeof(int));
     }
     int bomb;
-    printf("Укажите желаемое число бомб: ");
-    scanf("%d", &bomb);
-    if (bomb >= m * n)
-    {
-        printf("Число бомб не может превышать размеры поля. Повторите ввод: ");
-        scanf("%d", &bomb);
+    q=0;
+    do {
+    printf("Укажите желаемое число бомб(не превышает n*m): ");
+
+    scanf("%s", vvod);
+    if(provnanatural(vvod)) {
+        bomb=atoi(vvod);
+        q=1;
     }
-    while (bomb >= m * n)
-        ;
+    else {
+        printf("Вы не можете поставить не натуральное число бомб!");
+    } } while (q!=1 || bomb >= m * n);
+    // printf("Укажите желаемое число бомб: ");
+    // scanf("%d", &bomb); 
+    // if (bomb >= m * n)
+    // {
+    //     printf("Число бомб не может превышать размеры поля. Повторите ввод: ");
+    //     scanf("%d", &bomb);
+    // }
+    // while (bomb >= m * n)
+    //     ;
 
     // создание массива-поля для записи цифровых подсказок по поиску бомбы
     int **num = (int **)malloc((n + 2) * sizeof(int *));
@@ -154,4 +195,16 @@ int task5()
     map=NULL;
     num=NULL;
     return 0;
+}
+
+int provnanatural(const char *str)
+{
+    for (int i = 0; i < strlen(str); ++i)
+    {
+        if (!isdigit((unsigned char)str[i]))
+        {
+            return 0; // Не является натуральным числом
+        }
+    }
+    return 1; // Является натуральным числом
 }
